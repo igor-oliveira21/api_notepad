@@ -8,8 +8,8 @@ $obj =  json_decode($data);
 
 
 if(!empty($data)){	
- $usuarioControl = new usuariocontrol();
- $usuarioControl->insert($obj);
+ $usuariocontrol = new usuariocontrol();
+ $usuariocontrol->insert($obj);
  header('Location:listar.php');
 }
 
