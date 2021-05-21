@@ -3,59 +3,60 @@ include '../../conexao/conexao.php';
 
 class usuario extends conexao{
     
-    private $titulo;
-    private $descricao;
-    private $horario;
-    private $curso_id;
-    private $periodo_id;
-    private $disciplina_id;
+    private $usu_nome;
+    private $usu_cpf;
+    private $usu_email;
+    private $usu_telefone;
+    private $usu_senha;
+    private $usu_codigo;
+   
 
-    function getTitulo() {
-        return $this->titulo;
+    function getusu_nome() {
+        return $this->usu_nome;
     }
 
-    function getDescricao() {
-        return $this->descricao;
+    function getusu_cpf() {
+        return $this->usu_cpf;
     }
 
-    function getHorario() {
-        return $this->horario;
+    function getusu_email() {
+        return $this->usu_email;
     }
 
-    function getCurso_id() {
-        return $this->curso_id;
+    function getusu_telefone() {
+        return $this->usu_telefone;
     }
 
-    function getPeriodo_id() {
-        return $this->periodo_id;
+    function getusu_senha() {
+        return $this->usu_senha;
     }
 
-    function getDisciplina_id() {
-        return $this->disciplina_id;
+    function getusu_codigo() {
+        return $this->usu_codigo;
     }
 
-    function setTitulo($titulo) {
-        $this->titulo = $titulo;
+    function setusu_nome($usu_nome) {
+        $this->usu_nome = $usu_nome;
     }
 
-    function setDescricao($descricao) {
-        $this->descricao = $descricao;
+    function setusu_cpf($usu_cpf) {
+        $this->usu_cpf = $usu_cpf;
     }
 
-    function setHorario($horario) {
-        $this->horario = $horario;
+    function setusu_email($usu_email) {
+        $this->usu_email = $usu_email;
     }
 
-    function setCurso_id($curso_id) {
-        $this->curso_id = $curso_id;
+    function setusu_telefone($usu_telefone) {
+        $this->usu_telefone = $usu_telefone;
     }
 
-    function setPeriodo_id($periodo_id) {
-        $this->periodo_id = $periodo_id;
+    function setusu_senha($usu_senha) {
+        $this->usu_senha = $usu_senha;
     }
 
-    function setDisciplina_id($disciplina_id) {
-        $this->disciplina_id = $disciplina_id;
+    function setusu_codigo($usu_codigo) {
+        $this->usu_codigo = $usu_codigo;
     }
 
     public function insert($obj){
