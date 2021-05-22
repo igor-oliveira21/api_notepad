@@ -4,7 +4,7 @@ include '../../model/usuario.php';
 class usuariocontrol{
 	function insert($obj){
 		$ = new usuario();
-		//echo $obj->titulo;
+		
 		return $usuario->insert($obj);
 		header('Location:listar.php');
 	}

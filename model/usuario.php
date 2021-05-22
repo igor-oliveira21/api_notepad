@@ -1,96 +1,96 @@
 <?php
 include '../../conexao/conexao.php';
 
-class usuario extends conexao{
+class conteudo extends conexao{
     
-    private $usu_nome;
-    private $usu_cpf;
-    private $usu_email;
-    private $usu_telefone;
-    private $usu_senha;
-    private $usu_codigo;
-   
+    private $codigo;
+    private $nome;
+    private $cpf;
+    private $email;
+    private $telefone;
+    private $senha;
 
-    function getusu_nome() {
-        return $this->usu_nome;
-    }
-
-    function getusu_cpf() {
-        return $this->usu_cpf;
-    }
-
-    function getusu_email() {
-        return $this->usu_email;
-    }
-
-    function getusu_telefone() {
-        return $this->usu_telefone;
-    }
-
-    function getusu_senha() {
-        return $this->usu_senha;
-    }
-
-    function getusu_codigo() {
+    function getcodigo() {
         return $this->usu_codigo;
     }
 
-    function setusu_nome($usu_nome) {
-        $this->usu_nome = $usu_nome;
+    function getnome() {
+        return $this->usu_nome;
     }
 
-    function setusu_cpf($usu_cpf) {
-        $this->usu_cpf = $usu_cpf;
+    function getcpf() {
+        return $this->usu_cpf;
     }
 
-    function setusu_email($usu_email) {
-        $this->usu_email = $usu_email;
+    function getemail() {
+        return $this->usu_email;
     }
 
-    function setusu_telefone($usu_telefone) {
-        $this->usu_telefone = $usu_telefone;
+    function gettelefone() {
+        return $this->usu_telefne;
     }
 
-    function setusu_senha($usu_senha) {
-        $this->usu_senha = $usu_senha;
+    function getsenha() {
+        return $this->usu_senha;
     }
 
-    function setusu_codigo($usu_codigo) {
+    function setcodigo($usu_codigo) {
         $this->usu_codigo = $usu_codigo;
     }
 
+    function setnome($usu_nome) {
+        $this->usu_nome = $usu_nome;
+    }
+
+    function setcpf($usu_cpf) {
+        $this->usu_cpf = $usu_cpf;
+    }
+
+    function setemail($usu_email) {
+        $this->usu_email = $usu_email;
+    }
+
+    function settelefone($usu_telefone) {
+        $this->usu_telefone = $usu_telefone;
+    }
+
+    function setsenha($usu_senha) {
+        $this->usu_senha = $usu_senha;
+    }
+
     public function insert($obj){
-    	$sql = "INSERT INTO usuario(usu_nome,usu_cpf,usu_email,usu_telefone,usu_senha) VALUES (:usu_nome,:usu_cpf,:usu_email,:usu_telefone,:usu_senha)";
+    	$sql = "INSERT INTO usuario(usu_nome, usu_cpf, usu_email, usu_telefone, usu_senha) VALUES (:usu_nome,:usu_cpf,:usu_email,:usu_telefone,:usu_senha)";
     	$consulta = Conexao::prepare($sql);
-        $consulta->bindValue('usu_nome',  $obj->usu_nome);
-        $consulta->bindValue('usu_cpf', $obj->usu_cpf);
-        $consulta->bindValue('usu_email' , $obj->usu_email);
-        $consulta->bindValue('usu_telefone' , $obj->usu_telefone);
-        $consulta->bindValue('usu_senha' , $obj->usu_senha);
-      	return $consulta->execute();
+        $consulta->bindValue('usu_nome',  $obj->nome);
+        $consulta->bindValue('usu_cpf', $obj->cpf);
+        $consulta->bindValue('usu_email' , $obj->email);
+        $consulta->bindValue('usu_telefone' , $obj->telefone);
+        $consulta->bindValue('usu_senha' , $obj->senha);
+        return $consulta->execute();
 
 	}
 
 	public function update($obj,$id = null){
-	$sql = "UPDATE usuario SET usu_nome = :usu_nome, usu_cpf = :usu_cpf,usu_email = :usu_email, usu_telefone = :usu_telefone,usu_senha=:usu_senha WHERE usu_codigo = :usu_codigo ";
-	$consulta = Conexao::prepare($sql);
-       	$consulta->bindValue('usu_nome',  $obj->usu_nome);
-        $consulta->bindValue('usu_cpf', $obj->usu_cpf);
-        $consulta->bindValue('usu_email' , $obj->usu_email);
-        $consulta->bindValue('usu_telefone' , $obj->usu_telefone);
-        $consulta->bindValue('usu_senha' , $obj->usu_senha);
-	return $consulta->execute();
+		$sql = "UPDATE conteudo SET noms = :usu_nome, cpf = :usu_cpf,email = :usu_email, telefone = :usu_telefone,senha =:usu_senha WHERE codigo = :usu_codigo ";
+		$consulta = Conexao::prepare($sql);
+		$consulta->bindValue('usu_nome', $obj->nome);
+		$consulta->bindValue('usu_cpf', $obj->cpf);
+		$consulta->bindValue('usu_email' , $obj->email);
+		$consulta->bindValue('usu_telefone', $obj->telefone);
+		$consulta->bindValue('usu_senha' , $obj->senha);
+		$consulta->bindValue('usu_codigo', $codigo);
+		return $consulta->execute();
 	}
 
 	public function delete($id = null){
-		$sql =  "DELETE FROM usuario WHERE usu_codigo = :usu_codigo";
+		$sql =  "DELETE FROM conteudo WHERE codigo = :usu_codigo";
 		$consulta = Conexao::prepare($sql);
-		$consulta->bindValue('id',$id);
+		$consulta->bindValue('usu_codigo',$codigo);
 		$consulta->execute();
 	}
 
 	public function find(){
-		$sql = "SELECT * FROM usuario WHERE id = 8";
+		$sql = "SELECT * FROM conteudo WHERE id = 8";
 		$consulta = Conexao::prepare($sql);
 		$consulta->execute();
 		return $consulta->fetchAll();

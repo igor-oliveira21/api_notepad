@@ -9,8 +9,8 @@ $id = $obj->id;
 
 
 if(!empty($data)){	
- $usuariocontrol = new usuariocontrol();
- $usuariocontrol->delete($id);
+ $usuarioControl = new usuarioControl();
+ $usuarioControl->delete($id);
  header('Location:listar.php');
 }
 
