@@ -3,89 +3,91 @@ include '../../conexao/conexao.php';
 
 class conteudo extends conexao{
     
-    private $codigo;
-    private $nome;
-    private $cpf;
-    private $email;
-    private $telefone;
-    private $senha;
+    private $titulo;
+    private $descricao;
+    private $horario;
+    private $curso_id;
+    private $periodo_id;
+    private $disciplina_id;
 
-    function getcodigo() {
-        return $this->usu_codigo;
+    function getTitulo() {
+        return $this->titulo;
     }
 
-    function getnome() {
-        return $this->usu_nome;
+    function getDescricao() {
+        return $this->descricao;
     }
 
-    function getcpf() {
-        return $this->usu_cpf;
+    function getHorario() {
+        return $this->horario;
     }
 
-    function getemail() {
-        return $this->usu_email;
+    function getCurso_id() {
+        return $this->curso_id;
     }
 
-    function gettelefone() {
-        return $this->usu_telefne;
+    function getPeriodo_id() {
+        return $this->periodo_id;
     }
 
-    function getsenha() {
-        return $this->usu_senha;
+    function getDisciplina_id() {
+        return $this->disciplina_id;
     }
 
-    function setcodigo($usu_codigo) {
-        $this->usu_codigo = $usu_codigo;
+    function setTitulo($titulo) {
+        $this->titulo = $titulo;
     }
 
-    function setnome($usu_nome) {
-        $this->usu_nome = $usu_nome;
+    function setDescricao($descricao) {
+        $this->descricao = $descricao;
     }
 
-    function setcpf($usu_cpf) {
-        $this->usu_cpf = $usu_cpf;
+    function setHorario($horario) {
+        $this->horario = $horario;
     }
 
-    function setemail($usu_email) {
-        $this->usu_email = $usu_email;
+    function setCurso_id($curso_id) {
+        $this->curso_id = $curso_id;
     }
 
-    function settelefone($usu_telefone) {
-        $this->usu_telefone = $usu_telefone;
+    function setPeriodo_id($periodo_id) {
+        $this->periodo_id = $periodo_id;
     }
 
-    function setsenha($usu_senha) {
-        $this->usu_senha = $usu_senha;
+    function setDisciplina_id($disciplina_id) {
+        $this->disciplina_id = $disciplina_id;
     }
 
     public function insert($obj){
-    	$sql = "INSERT INTO usuario(usu_nome, usu_cpf, usu_email, usu_telefone, usu_senha) VALUES (:usu_nome,:usu_cpf,:usu_email,:usu_telefone,:usu_senha)";
+    	$sql = "INSERT INTO conteudo(titulo,descricao,horario,curso_id,periodo_id,disciplina_id) VALUES (:titulo,:descricao,:horario,:curso_id,:periodo_id,:disciplina_id)";
     	$consulta = Conexao::prepare($sql);
-        $consulta->bindValue('usu_nome',  $obj->nome);
-        $consulta->bindValue('usu_cpf', $obj->cpf);
-        $consulta->bindValue('usu_email' , $obj->email);
-        $consulta->bindValue('usu_telefone' , $obj->telefone);
-        $consulta->bindValue('usu_senha' , $obj->senha);
-        return $consulta->execute();
+        $consulta->bindValue('titulo',  $obj->titulo);
+        $consulta->bindValue('descricao', $obj->descricao);
+        $consulta->bindValue('horario' , $obj->horario);
+        $consulta->bindValue('curso_id' , $obj->curso_id);
+        $consulta->bindValue('periodo_id' , $obj->periodo_id);
+        $consulta->bindValue('disciplina_id' , $obj->periodo_id);
+    	return $consulta->execute();
 
 	}
 
 	public function update($obj,$id = null){
-		$sql = "UPDATE conteudo SET noms = :usu_nome, cpf = :usu_cpf,email = :usu_email, telefone = :usu_telefone,senha =:usu_senha WHERE codigo = :usu_codigo ";
+		$sql = "UPDATE conteudo SET titulo = :titulo, descricao = :descricao,horario = :horario, curso_id = :curso_id,periodo_id =:periodo_id, disciplina_id = :disciplina_id WHERE id = :id ";
 		$consulta = Conexao::prepare($sql);
-		$consulta->bindValue('usu_nome', $obj->nome);
-		$consulta->bindValue('usu_cpf', $obj->cpf);
-		$consulta->bindValue('usu_email' , $obj->email);
-		$consulta->bindValue('usu_telefone', $obj->telefone);
-		$consulta->bindValue('usu_senha' , $obj->senha);
-		$consulta->bindValue('usu_codigo', $codigo);
+		$consulta->bindValue('titulo', $obj->titulo);
+		$consulta->bindValue('descricao', $obj->descricao);
+		$consulta->bindValue('horario' , $obj->horario);
+		$consulta->bindValue('curso_id', $obj->curso_id);
+		$consulta->bindValue('periodo_id' , $obj->periodo_id);
+		$consulta->bindValue('disciplina_id' , $obj->disciplina_id);
+		$consulta->bindValue('id', $id);
 		return $consulta->execute();
 	}
 
 	public function delete($id = null){
-		$sql =  "DELETE FROM conteudo WHERE codigo = :usu_codigo";
+		$sql =  "DELETE FROM conteudo WHERE id = :id";
 		$consulta = Conexao::prepare($sql);
-		$consulta->bindValue('usu_codigo',$codigo);
+		$consulta->bindValue('id',$id);
 		$consulta->execute();
 	}
 
@@ -97,7 +99,7 @@ class conteudo extends conexao{
 	}
 
 	public function findAll(){
-		$sql = "SELECT * FROM usuario";
+		$sql = "SELECT * FROM USUARIO";
 		$consulta = Conexao::prepare($sql);
 		$consulta->execute();
 		return $consulta->fetchAll();

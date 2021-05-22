@@ -3,8 +3,7 @@ include '../../model/usuario.php';
 
 class usuariocontrol{
 	function insert($obj){
-		$ = new usuario();
-		
+		$usuario = new usuario();
 		return $usuario->insert($obj);
 		header('Location:listar.php');
 	}
