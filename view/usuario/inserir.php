@@ -1,5 +1,5 @@
 <?php
-include '../../control/conteudocontrol.php';
+include '../../control/usuariocontrol.php';
  
 $data = file_get_contents('php://input');
 $obj =  json_decode($data);
@@ -8,8 +8,8 @@ $obj =  json_decode($data);
 
 
 if(!empty($data)){	
- $conteudoControl = new conteudocontrol();
- $conteudoControl->insert($obj);
+ $usuarioControl = new usuariocontrol();
+ $usuarioControl->insert($obj);
  header('Location:listar.php');
 }
 

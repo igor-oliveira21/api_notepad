@@ -1,5 +1,5 @@
 <?php
-include '../../control/conteudocontrol.php';
+include '../../control/usuariocontrol.php';
  
 $data = file_get_contents('php://input');
 $obj =  json_decode($data);
@@ -9,8 +9,8 @@ $id = $obj->id;
 
 
 if(!empty($data)){	
- $conteudoControl = new conteudoControl();
- $conteudoControl->delete($id);
+ $usuarioControl = new usuarioControl();
+ $usuarioControl->delete($id);
  header('Location:listar.php');
 }
 

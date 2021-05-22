@@ -1,12 +1,12 @@
 <?php
-include '../../control/conteudocontrol.php';
-$conteudocontrol = new conteudocontrol();
+include '../../control/usuariocontrol.php';
+$usuariocontrol = new usuariocontrol();
 
 header('Content-Type: application/json');
 
 $itens = array();
 
-foreach($conteudocontrol->findAll() as $valor){
+foreach($usuariocontrol->findAll() as $valor){
 	$itens[] = $valor ;
 }
 
