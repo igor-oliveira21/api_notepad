@@ -1,5 +1,5 @@
 <?php
-include '../../model/usuariocontrol.php';
+include '../../model/usuario.php';
 
 class usuariocontrol{
 	function insert($obj){
