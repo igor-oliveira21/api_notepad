@@ -11,7 +11,7 @@ class conteudo extends conexao{
     private $usu_senha;
 
     function get usu_codigo() {
-        return $this->codigo;
+        return $this->usu_codigo;
     }
 
     function get usu_nome() {
@@ -27,7 +27,7 @@ class conteudo extends conexao{
     }
 
     function get usu_telefone() {
-        return $this->usu_|telefone;
+        return $this->usu_telefone;
     }
 
     function get usu_senha() {
@@ -42,50 +42,49 @@ class conteudo extends conexao{
         $this->usu_nome = $usu_nome;
     }
 
-    function set usu-cpf($usu_cpf) {
+    function set usu_cpf($usu_cpf) {
         $this->usu_cpf = $usu_cpf;
     }
 
-    function set usu_email($curso_id) {
-        $this->curso_id = $curso_id;
+    function set usu_email($usu_email) {
+        $this->usu_email = $usu_email;
     }
 
-    function setPeriodo_id($periodo_id) {
-        $this->periodo_id = $periodo_id;
+    function set usu_telefone($usu_telefne) {
+        $this->usu_telefone = $usu_telefone;
     }
-
-    function setDisciplina_id($disciplina_id) {
-        $this->disciplina_id = $disciplina_id;
+ 
+    function setusu_senha($usu_senha) {
+        $this->usu_senha = $usu_senha;
     }
 
     public function insert($obj){
-    	$sql = "INSERT INTO conteudo(titulo,descricao,horario,curso_id,periodo_id,disciplina_id) VALUES (:titulo,:descricao,:horario,:curso_id,:periodo_id,:disciplina_id)";
+    	$sql = "INSERT INTO usuario(usu_nome, usu_cpf, usu_email,usu_telefone,usu_senha) VALUES (:usu_nome,:usu_cpf,:usu_email,:usu_telefone,:usu_senha)";
     	$consulta = Conexao::prepare($sql);
-        $consulta->bindValue('titulo',  $obj->titulo);
-        $consulta->bindValue('descricao', $obj->descricao);
-        $consulta->bindValue('horario' , $obj->horario);
-        $consulta->bindValue('curso_id' , $obj->curso_id);
-        $consulta->bindValue('periodo_id' , $obj->periodo_id);
-        $consulta->bindValue('disciplina_id' , $obj->periodo_id);
-    	return $consulta->execute();
+        $consulta->bindValue('usu_nome',  $obj->usu_nome);
+        $consulta->bindValue('usu_cpf', $obj->usu_cpf);
+        $consulta->bindValue('usu_email' , $obj->usu_email);
+        $consulta->bindValue('usu_telefone' , $obj->usu_telefone);
+        $consulta->bindValue('usu_senha' , $obj->usu_senha);
+       	return $consulta->execute();
 
 	}
 
-	public function update($obj,$id = null){
-		$sql = "UPDATE conteudo SET titulo = :titulo, descricao = :descricao,horario = :horario, curso_id = :curso_id,periodo_id =:periodo_id, disciplina_id = :disciplina_id WHERE id = :id ";
+	public function update($usu_codigo,$id = usu_codigo){
+		$sql = "UPDATE conteudo SET usu_nome= :usu_nome, usu_cpf = :usu_cpf,usu_email = :usu_email, usu_telefone = :usu_telefone,usu_senha =:usu_senha WHERE usu_codigo = :usu_codigo ";
 		$consulta = Conexao::prepare($sql);
-		$consulta->bindValue('titulo', $obj->titulo);
-		$consulta->bindValue('descricao', $obj->descricao);
-		$consulta->bindValue('horario' , $obj->horario);
-		$consulta->bindValue('curso_id', $obj->curso_id);
-		$consulta->bindValue('periodo_id' , $obj->periodo_id);
-		$consulta->bindValue('disciplina_id' , $obj->disciplina_id);
-		$consulta->bindValue('id', $id);
+		$consulta = Conexao::prepare($sql);
+        	$consulta->bindValue('usu_nome',  $obj->usu_nome);
+        	$consulta->bindValue('usu_cpf', $obj->usu_cpf);
+        	$consulta->bindValue('usu_email' , $obj->usu_email);
+        	$consulta->bindValue('usu_telefone' , $obj->usu_telefone);
+        	$consulta->bindValue('usu_senha' , $obj->usu_senha);
+		$consulta->bindValue('usu_codigo', $usu_codigo);
 		return $consulta->execute();
 	}
 
 	public function delete($id = null){
-		$sql =  "DELETE FROM conteudo WHERE id = :id";
+		$sql =  "DELETE FROM usuario WHERE usu_codigo = :usu_codigo";
 		$consulta = Conexao::prepare($sql);
 		$consulta->bindValue('id',$id);
 		$consulta->execute();
@@ -93,13 +92,13 @@ class conteudo extends conexao{
 
 	public function find(){
 		$sql = "SELECT * FROM conteudo WHERE id = 8";
-		$consulta = Conexao::prepare($sql);
+		$consulta = Conexao::prepare($sql);one
 		$consulta->execute();
 		return $consulta->fetchAll();
 	}
 
 	public function findAll(){
-		$sql = "SELECT * FROM USUARIO";
+		$sql = "SELECT * FROM usuario";
 		$consulta = Conexao::prepare($sql);
 		$consulta->execute();
 		return $consulta->fetchAll();
