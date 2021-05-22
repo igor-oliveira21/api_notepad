@@ -3,50 +3,50 @@ include '../../conexao/conexao.php';
 
 class conteudo extends conexao{
     
-    private $titulo;
-    private $descricao;
-    private $horario;
-    private $curso_id;
-    private $periodo_id;
-    private $disciplina_id;
+    private $usu_codigo;
+    private $usu_nome;
+    private $usu_cpf;
+    private $usu_email;
+    private $usu_telefone;
+    private $usu_senha;
 
-    function getTitulo() {
-        return $this->titulo;
+    function get usu_codigo() {
+        return $this->codigo;
     }
 
-    function getDescricao() {
-        return $this->descricao;
+    function get usu_nome() {
+        return $this->usu_nome;
     }
 
-    function getHorario() {
-        return $this->horario;
+    function get usu_cpf() {
+        return $this->usu_cpf;
     }
 
-    function getCurso_id() {
-        return $this->curso_id;
+    function get usu_email() {
+        return $this->usu_email;
     }
 
-    function getPeriodo_id() {
-        return $this->periodo_id;
+    function get usu_telefone() {
+        return $this->usu_|telefone;
     }
 
-    function getDisciplina_id() {
-        return $this->disciplina_id;
+    function get usu_senha() {
+        return $this->usu_senha;
     }
 
-    function setTitulo($titulo) {
-        $this->titulo = $titulo;
+    function set usu_codigo($usu_codigo) {
+        $this->usu_codigo = $usu_codigo;
     }
 
-    function setDescricao($descricao) {
-        $this->descricao = $descricao;
+    function set usu_nome($usu_nome) {
+        $this->usu_nome = $usu_nome;
     }
 
-    function setHorario($horario) {
-        $this->horario = $horario;
+    function set usu-cpf($usu_cpf) {
+        $this->usu_cpf = $usu_cpf;
     }
 
-    function setCurso_id($curso_id) {
+    function set usu_email($curso_id) {
         $this->curso_id = $curso_id;
     }
 
