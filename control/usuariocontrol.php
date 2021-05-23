@@ -8,19 +8,19 @@ class usuariocontrol{
 		header('Location:listar.php');
 	}
 
-	function update($obj,$id){
+	function update($obj,$usu_codigo){
 		$usuario = new usuario();
-		return $usuario->update($obj,$id);
+		return $usuario->update($obj,$usu_codigo);
 	}
 
-	function delete($id){
+	function delete($usu_codigo){
 		$usuario = new usuario();
-		return $usuario->delete($id);
+		return $usuario->delete($usu_codigo);
 	}
 
-	function find(){
+	function find($usu_codigo){
 		$usuario = new usuario();
-		return $usuario->find();
+		return $usuario->find($usu_codigo);
 	}
 
 	function findAll(){

@@ -5,14 +5,14 @@ $usuariocontrol = new usuariocontrol();
 $data = file_get_contents('php://input');
 $obj =  json_decode($data);
 
-$id = $obj->id;
+$usu_codigo = $obj->usu_codigo;
 
 header('Content-Type: application/json');
 
 $itens = array();
 
 if(!empty($data)){
-	foreach($usuariocontrol->find($id) as $valor){
+	foreach($usuariocontrol->find($usu_codigo) as $valor){
 		$itens[] = $valor ;
 	}
 }
